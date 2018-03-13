@@ -1,0 +1,122 @@
+# dein自体
+[[plugins]]
+repo = 'Shougo/dein.vim'
+
+# 非同期通信
+[[plugins]]
+repo = 'Shougo/vimproc.vim'
+hook_post_update = '''
+    if dein#util#_is_windows()
+        let cmd = 'tools\\update-dll-mingw'
+    elseif dein#util#_is_cygwin()
+        let cmd = 'make -f make_cygwin.mak'
+    elseif executable('gmake')
+        let cmd = 'gmake'
+    else
+        let cmd = 'make'
+    endif
+    let g:dein#plugin.build = cmd
+'''
+
+# Denite
+[[plugins]]
+repo = 'Shougo/denite.nvim'
+
+# devicon
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'scrooloose/nerdtree'
+
+[[plugins]]
+repo = 'tiagofumo/vim-nerdtree-syntax-highlight'
+
+# 文法チェック
+[[plugins]]
+repo = 'scrooloose/syntastic'
+
+# インデント
+[[plugins]]
+repo = 'nathanaelkane/vim-indent-guides'
+hook_post_source = 'let g:indent_guides_guide_size = 1'
+
+[[plugins]]
+repo = 'Yggdroot/indentLine'
+
+# lightline
+[[plugins]]
+repo = 'itchyny/lightline.vim'
+
+# tagbar
+[[plugins]]
+repo = 'majutsushi/tagbar'
+
+# color
+[[plugins]]
+repo = 'KeitaNakamura/railscasts.vim'
+
+[[plugins]]
+repo = 'KeitaNakamura/lightline-railscasts.vim'
+
+# 言語
+# swift
+[[plugins]]
+repo = 'toyamarinyon/vim-swift'
+
+# scheme
+[[plugins]]
+repo = 'wlangstroth/vim-racket'
+
+# dogelang
+[[plugins]]
+repo = 'rubik/vim-dg'
+
+# go
+[[plugins]]
+repo = 'fatih/vim-go'
+
+# go compiler
+[[plugins]]
+repo = 'rjohnsondev/vim-compiler-go'
+
+# go def
+[[plugins]]
+repo = 'dgryski/vim-godef'
+
+# go extra
+[[plugins]]
+repo = 'vim-jp/vim-go-extra'
+
+# toml
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+# markdown
+[[plugins]]
+repo = 'plasticboy/vim-markdown'
+# repo = 'tpope/vim-markdown'
+on_if = '''
+    let g:vim_markdown_conceal = 0
+    let g:tex_conceal = ""
+    let g:vim_markdown_math = 1
+    let g:vim_markdown_new_list_item_indent = 2
+'''
+
+[[plugins]]
+repo = 'kannokanno/previm'
+on_if = '''
+    *.md set filetype=markdown
+    let g:previm_open_cmd = 'open -a Google\ Chrome'
+    let g:previm_enable_realtime = 1
+'''
+
+[[plugins]]
+repo = 'tyru/open-browser.vim'
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'wakatime/vim-wakatime'
