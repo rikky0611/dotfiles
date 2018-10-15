@@ -1,9 +1,8 @@
 #!/bin/bash
-DOT_FILES=(.bashrc .bash_profile .zshrc .zprofile .vim .vimrc .tmux.conf)
-
-# symbolic link
-for file in ${DOT_FILES[@]}
+for f in .??*
 do
-    ln -fs $HOME/dotfiles/$file $HOME/$file
+    [[ "$f" == ".git" ]] && continue
+    [[ "$f" == ".DS_Store" ]] && continue
+    ln -fs $HOME/dotfiles/$f $HOME/$f
 done
-
+echo "finish install.sh" 
